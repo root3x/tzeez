@@ -1,0 +1,21 @@
+<section class="section top-slider">
+  <div class="container top-slider__container">
+    <div class="swiper slider">
+      <div class="swiper-wrapper slider__wrapper">
+        @@loop('_top-slide.html', '@@webRoot/components/page-blocks/_top-slider/_top-slide.json')
+      </div>
+    </div>
+    <div class="swiper-navigation slider__navigation slider__nav">
+      <button class="slider__btn slider__btn--prev" aria-label="Предыдущие товары">
+        <svg class="arrow">
+          <use xlink:href="img/sprite.svg#sprite--slider-arrow" />
+        </svg>
+      </button>
+      <button class="slider__btn slider__btn--next" aria-label="Следующие товары">
+        <svg class="arrow arrow--next">
+          <use xlink:href="img/sprite.svg#sprite--slider-arrow" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>

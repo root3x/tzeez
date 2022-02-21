@@ -1,0 +1,131 @@
+.top-slider{
+  padding: 220px 0;
+  background-color: $primary;
+  &__container{
+    position: relative;
+  }
+}
+
+.slider{
+  width: 80%;
+  &__slide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .quotes{
+    margin-bottom: 34px;
+  }
+  &__title{
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-size: 36px;
+    line-height: 40 / 36 * 100%;
+    font-weight: 600;
+    text-align: center;
+    color: $gold;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  &__text{
+    max-width: 90%;
+    margin-bottom: 40px;
+    line-height: 40 / 16 * 100%;
+    color: $white;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  &__author{
+    max-width: 80%;
+    font-size: 24px;
+    line-height: 40 / 24 * 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    color: $gold;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  &__btn{
+    &--disabled{
+      .arrow{
+        stroke: $white;
+      }
+    }
+    &--prev,
+    &--next{
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    &--prev{
+      left: 40px;
+    }
+    &--next{
+      right: 40px;
+    }
+  }
+  &__slide{
+    &--active{
+      .quotes{
+        animation: scale-up-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.7s both;
+      }
+      .slider__title{
+        animation: text-focus-in 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.2s both;
+      }
+      .slider__text{
+        animation: text-focus-in 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.5s both;
+      }
+      .slider__author{
+        animation: scale-up-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
+      }
+    }
+  }
+}
+
+
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+            opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1;
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  .top-slider{
+    padding: 70px 0;
+  }
+  .slider{
+    &__btn{
+      &--prev{
+        left: 0;
+      }
+      &--next{
+        right: 0;
+      }
+    }
+  }
+}

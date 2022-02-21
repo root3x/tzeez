@@ -1,0 +1,101 @@
+.cafe-menu{
+  margin-top: 735px;
+  padding: 80px 0;
+  &__container{
+    display: grid;
+    grid-template-columns: minmax(40%, 1fr) 2fr;
+    gap: 32px;
+  }
+  &__photos{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+  &__photo1,
+  &__photo2{
+    position: absolute;
+  }
+  &__photo1{
+    left: 0;
+    bottom: 0;
+    transform-origin: left bottom;
+  }
+  &__photo2{
+    right: 0;
+    top: 0;
+    transform-origin: right top;
+  }
+}
+
+.dishday{
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 40%;
+  padding-bottom: 80px;
+  &__item{
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid $grey;
+  }
+  &__wrap{
+    display: flex;
+    align-items: center;
+  }
+  &__date{
+    margin-bottom: 10px;
+    font-size: 24px;
+    line-height: 32 / 24 * 100%;
+  }
+  &__name{
+    font-size: 18px;
+    line-height: 32 / 18 * 100%;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .cafe-menu{
+    &__container{
+      grid-template-columns: repeat(2, 1fr); 
+    }
+    &__photo1,
+    &__photo2{
+      transform: scale(0.8);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cafe-menu{
+    margin-top: 610px;
+    &__container{
+      grid-template-columns: 1fr; 
+    }
+    &__photos{
+      height: 600px;
+    }
+  }
+  .dishday{
+    padding-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cafe-menu{
+    margin-top: 550px;
+    &__photo1,
+    &__photo2{
+      transform: scale(0.7);
+    }
+  }
+  .dishday{
+    &__wrap{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .dots-wrap{
+      padding: 5px 24px;
+    }
+  }
+}

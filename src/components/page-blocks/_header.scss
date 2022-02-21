@@ -1,0 +1,147 @@
+.header{
+  position: relative;
+  z-index: 1;
+  padding: 55px 0;
+  &__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo{
+    display: inline-flex;
+    transform: scale(1);
+    transition: transform .45s ease-out;
+    @media screen and (min-width: 992px) {
+      &:hover{
+        transform: scale(1.02);
+      }
+    }
+    &:active{
+      transform: scale(0.98);
+    }
+  }
+  &__phone{
+    display: flex;
+    align-items: center;
+    @media screen and (min-width: 992px) {
+      &:hover{
+        .header__phone-text{
+          color: $gold;
+        }
+        .phone{
+          stroke: $white;
+        }
+      }
+    }
+    &:active{
+      .header__phone-text{
+        color: darken($gold, 10);
+      }
+    }
+  }
+  &__phone-text{
+    max-width: 150px;
+    padding-left: 13px;
+    word-wrap: break-word;
+    word-break: break-word;
+    color: $white;
+    transition: color .45s ease-out;
+  }
+}
+
+.menu{
+  &__list{
+    display: flex;
+    gap: 25px;
+    flex: 1 1 auto;
+  }
+  &__link{
+    display: flex;
+    max-width: 150px;
+    padding: 10px;
+    color: $white;
+    transition: color .45s ease-out;
+    word-wrap: break-word;
+    word-break: break-word;
+    &--active{
+      font-weight: 500;
+    }
+    @media screen and (min-width: 992px) {
+      &:hover{
+        color: $primary-light;
+      }
+    }
+    &:active{
+      color: $primary;
+    }
+  }
+  &__burger{
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .header{
+    &__nav{
+      // position: relative;
+      order: -1;
+    }
+  }
+  .menu{
+    &__burger{
+      position: relative;
+      display: flex;
+      z-index: 15;
+    }
+    &__list{
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 10;
+      width: 100%;
+      height: 100vh;
+      padding: 150px 40px 40px;
+      flex-direction: column;
+      gap: 45px;
+      background-color: rgba($white, .75);
+      backdrop-filter: blur(5px);
+      overflow-y: auto;
+      transform: translateX(-150%);
+      transition: transform .45s ease-out;
+      &.active{
+        transform: translateX(0);
+      }
+    }
+    &__item{
+      border-bottom: 1px solid $primary-light;
+    }
+    &__link{
+      display: flex;
+      color: $primary-dark;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .header{
+    &__phone{
+      margin-left: auto;
+    }
+    &__phone-text{
+      font-weight: 500;
+      color: $primary;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .header{
+    padding: 25px 0;
+    &__logo{
+      img{
+        max-width: 160px;
+      }
+    }
+  }
+}
